@@ -1,0 +1,44 @@
+.buttons-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 30px 50px;
+  display: flex;
+  gap: 25px;
+}
+
+.buttons-container > button {
+  padding: 8px 30px;
+  font-family: "DM Sans";
+  font-size: 30px;
+  line-height: 120%;
+  border-radius: 25px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 144px;
+}
+
+.sign-button {
+  background-color: white;
+  border: 1px solid #000000;
+}
+
+.sign-button:hover {
+  background-color: #e0e0e0;
+}
+
+.sign-button:active {
+  background-color: #c4c4c4;
+}
+
+.log-button {
+  background-color: #D9D9D9;
+  border: none;
+}
+
+.log-button:hover {
+  outline: 1px solid #000000;
+}
+.log-button:active {
+  background-color: #c4c4c4;
+}
