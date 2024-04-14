@@ -1,0 +1,18 @@
+<div class="buttons-container">
+  <button class="buttons-container__sign-btn" (click)="openRegisterModal()">
+    {{registerButton}}
+  </button>
+  <button class="buttons-container__log-btn" (click)="openLoginModal()">
+    {{logButton}}
+  </button>
+</div>
+
+<ng-container *ngIf="showRegisterModal" [ngTemplateOutlet]="register"></ng-container>
+<ng-container *ngIf="showLoginModal" [ngTemplateOutlet]="login"></ng-container>
+
+<ng-template #register>
+  <app-register></app-register>
+</ng-template>
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>

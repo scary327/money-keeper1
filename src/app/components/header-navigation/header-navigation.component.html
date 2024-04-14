@@ -1,0 +1,34 @@
+<header class="header-navigation"
+        [@headerAnimation]="isChanged ? 'changed' : 'default'"
+        (mouseenter)="openHeader()"
+        (mouseleave)="closeHeader()">
+  <li [ngClass]="isDisabled ?
+    'header-navigation__li header-navigation__li-disabled' :
+    'header-navigation__li header-navigation__li-undisabled'">
+    <img class="header-navigation__logo-img" src="{{logoIcon}}" alt="logo">
+    <div class="hidden-text"
+         [style.display]="isChanged ? 'block': 'none'">
+      Money Keeper
+    </div>
+  </li>
+  <ul class="header-navigation__icon-list">
+    <li [ngClass]="isDisabled ? 'header-navigation__li header-navigation__li-disabled': 'header-navigation__li header-navigation__li-undisabled'"
+        *ngFor="let item of navigationItems">
+      <img class="header-navigation__icon" src="{{item.icon}}" alt="{{item.alt}}">
+      <div class="hidden-text"
+           [style.display]="isChanged ? 'block': 'none'">
+        {{item.text}}
+      </div>
+    </li>
+  </ul>
+  <ul class="header-navigation__icon-account-list">
+    <li [ngClass]="isDisabled ? 'header-navigation__li header-navigation__li-disabled': 'header-navigation__li header-navigation__li-undisabled'"
+        *ngFor="let elem of accountInteraction">
+      <img class="header-navigation__icon" src="{{elem.icon}}" alt="{{elem.alt}}">
+      <div class="hidden-text"
+           [style.display]="isChanged ? 'block': 'none'">
+        {{elem.text}}
+      </div>
+    </li>
+  </ul>
+</header>

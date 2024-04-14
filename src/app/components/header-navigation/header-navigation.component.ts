@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, HostBinding, Input, ViewChild} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export interface HeaderNavigationList {
   icon: string,
@@ -15,24 +14,25 @@ export interface HeaderNavigationList {
   standalone: true,
   imports: [RouterOutlet, CommonModule],
   templateUrl: './header-navigation.component.html',
-  styleUrl: './header-navigation.component.scss',
+  styleUrl: './styles/header-navigation.scss',
   animations: [
     trigger('headerAnimation', [
       state('default', style({ width: '96px' })),
-      state('changed', style({ width: '200px' })),
+      state('changed', style({ width: '250px' })),
       transition('default => changed', animate('200ms ease-in')),
       transition('changed => default', animate('200ms ease-out'))
     ])
   ],
-  providers: [BrowserAnimationsModule]
+  providers: []
 })
 export class HeaderNavigationComponent {
   logoIcon : string = "/assets/images/logo.svg";
 
   navigationItems: HeaderNavigationList[] = [
+    { icon: "/assets/images/profile.svg", alt: 'profileIcon', text: 'Profile' },
     { icon: "/assets/images/calendar.svg", alt: 'calendarIcon', text: 'Calendar' },
     { icon: "/assets/images/graph.svg", alt: 'graphIcon', text: 'Graphs' },
-    { icon: "/assets/images/todo.svg", alt: 'todoIcon', text: 'Add Case' }
+    { icon: "/assets/images/pie-chart.svg", alt: 'todoIcon', text: 'Pie Chart' }
   ];
 
   accountInteraction: HeaderNavigationList[] = [
@@ -40,10 +40,16 @@ export class HeaderNavigationComponent {
     { icon: "/assets/images/deleteAcc.svg", alt: 'deleteAcc', text:'Delete Account'}
   ];
 
-  isChanged = false;
+  public isChanged: boolean = false;
 
-  toggleChanged(): void {
-    this.isChanged = !this.isChanged;
+  public openHeader(): void {
+    this.isChanged = true;
   }
 
+  public closeHeader(): void {
+    this.isChanged = false;
+  }
+
+  @Input() isAuthorized!: boolean;
+  public isDisabled:boolean = !this.isAuthorized;
 }

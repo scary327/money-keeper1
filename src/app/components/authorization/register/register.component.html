@@ -1,0 +1,33 @@
+<div class="background-modal-container">
+  <div class="modal-container">
+    <button class="modal-container__close-btn" (click)="closeRegisterModal()">x</button>
+    <form class="modal-container__form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        class="modal-container__input"
+        placeholder="Username"
+        formControlName="username"
+        required
+      />
+      <input
+        type="email"
+        class="modal-container__input"
+        placeholder="Email"
+        formControlName="email"
+        required
+      />
+      <input
+        type="password"
+        class="modal-container__input"
+        placeholder="Password"
+        formControlName="password"
+        autocomplete="on"
+        required
+      />
+    </form>
+    <div class="modal-container__buttons-container">
+      <button class="modal-container__submit-btn" type="submit" [disabled]="!registrationForm.valid">register</button>
+      <button class="modal-container__bottom-btn">already have an account?</button>
+    </div>
+  </div>
+</div>

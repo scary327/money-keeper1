@@ -1,0 +1,16 @@
+<header-navigation [isAuthorized]="isAuthorized"></header-navigation>
+
+<div class="main-container">
+  <h1 class="main-container__title">{{title}}</h1>
+  <div class="main-container__description">
+    {{description}}
+  </div>
+  <button class="main-container__button" *ngIf="!isAuthorized" (click)="openRegisterModal()">
+    Try it
+  </button>
+  <button class="main-container__button" *ngIf="isAuthorized">
+    Go Profile
+  </button>
+</div>
+
+<authorization-buttons *ngIf="!isAuthorized"></authorization-buttons>

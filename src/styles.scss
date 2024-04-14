@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other styles files */
 @import "normalize.css";
 
 body {
@@ -8,6 +8,16 @@ body {
 h1 {
   margin: 0;
   padding: 0;
+}
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
 }
 
 @font-face {
