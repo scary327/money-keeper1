@@ -1,16 +1,15 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf, NgTemplateOutlet} from "@angular/common";
-import {AuthorizationButtonsComponent} from "../authorization-buttons/authorization-buttons.component";
-import EventEmitter from "events";
 import {LoginModalService} from "../../../services/modal-services/login-modal.service";
 import {CustomValidators} from "../../../services/custom-valiodators/CustomValidators";
+import {ErrorHandlerComponent} from "../../../error-handler/error-handler.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgIf, NgTemplateOutlet],
+  imports: [RouterOutlet, ReactiveFormsModule, NgIf, NgTemplateOutlet, ErrorHandlerComponent],
   templateUrl: 'login.component.html',
   styleUrl: '../styles/authorization.master.scss'
 })

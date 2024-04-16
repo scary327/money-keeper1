@@ -1,15 +1,15 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CustomValidators} from "../../../services/custom-valiodators/CustomValidators";
 import {NgIf, NgTemplateOutlet} from "@angular/common";
-import EventEmitter from "events";
 import {RegisterModalService} from "../../../services/modal-services/register-modal.service";
+import {ErrorHandlerComponent} from "../../../error-handler/error-handler.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgTemplateOutlet, NgIf],
+  imports: [RouterOutlet, ReactiveFormsModule, NgTemplateOutlet, NgIf, ErrorHandlerComponent],
   templateUrl: 'register.component.html',
   styleUrl: '../styles/authorization.master.scss'
 })

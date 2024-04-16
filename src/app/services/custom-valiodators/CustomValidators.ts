@@ -6,7 +6,7 @@ export class CustomValidators {
      const validEmailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
      if (!validEmailPattern.test(email)) {
-       return { invalidEmail: true };
+       return { emailValidator: true };
      }
 
      return null;
