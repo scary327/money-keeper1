@@ -9,8 +9,16 @@
   position: absolute;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.10);
 
+  &__burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20vh;
+  }
+
   &__icon-account-list {
-    height: 10vh;
+    height: 50%;
   }
 
   &__li {
@@ -20,7 +28,7 @@
     align-items: center;
     gap: 10px;
     font-family: "DM Sans", sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     padding: 10px;
 
     &-undisabled {
@@ -49,8 +57,8 @@
   }
 
   &__icon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 }
 
