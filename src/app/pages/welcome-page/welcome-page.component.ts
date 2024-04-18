@@ -12,7 +12,7 @@ import {RegisterModalService} from "../../services/modal-services/register-modal
   standalone: true,
   imports: [RouterOutlet, HeaderNavigationComponent, AuthorizationButtonsComponent, NgIf],
   templateUrl: 'welcome-page.component.html',
-  styleUrl: './styles/welcome-page.scss'
+  styleUrl: './styles/welcome-page.master.scss'
 })
 export class WelcomePageComponent {
   public title: string = 'Money Keeper';

@@ -11,7 +11,7 @@ import {LoginModalService} from "../../../services/modal-services/login-modal.se
   standalone: true,
   imports: [RouterOutlet, NgIf, RegisterComponent, LoginComponent, NgTemplateOutlet],
   templateUrl: 'authorization-buttons.component.html',
-  styleUrl: './styles/authorization-buttons.scss'
+  styleUrl: './styles/authorization-buttons.master.scss'
 })
 export class AuthorizationButtonsComponent implements OnInit{
   public registerButton: string = "sign up";
