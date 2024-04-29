@@ -3,8 +3,9 @@ import {RouterOutlet} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CustomValidators} from "../../../services/custom-valiodators/CustomValidators";
 import {NgIf, NgTemplateOutlet} from "@angular/common";
-import {RegisterModalService} from "../../../services/modal-services/register-modal.service";
 import {ErrorHandlerComponent} from "../../../error-handler/error-handler.component";
+import {Subject} from "rxjs";
+import {ModalService} from "../../../services/modal-services/modal.service";
 
 @Component({
   selector: 'app-register',
@@ -17,10 +18,11 @@ export class RegisterComponent implements OnInit{
 
   public registrationForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private registerModalService: RegisterModalService) {}
+  constructor(private formBuilder: FormBuilder,
+              private modalService: ModalService) {}
 
   public closeRegisterModal(): void {
-    this.registerModalService.closeRegisterModal();
+    this.modalService.destroyComponent();
   }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class RegisterComponent implements OnInit{
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.registrationForm.invalid) {
       return;
     }
