@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf, NgTemplateOutlet} from "@angular/common";
-import {LoginModalService} from "../../../services/modal-services/login-modal.service";
 import {CustomValidators} from "../../../services/custom-valiodators/CustomValidators";
 import {ErrorHandlerComponent} from "../../../error-handler/error-handler.component";
+import {ModalService} from "../../../services/modal-services/modal.service";
 
 @Component({
   selector: 'app-login',
@@ -17,10 +17,11 @@ export class LoginComponent implements OnInit{
 
   public loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private loginModalService: LoginModalService) {}
+  constructor(private formBuilder: FormBuilder,
+              private modalService: ModalService) {}
 
   public closeLoginModal(): void {
-    this.loginModalService.closeLoginModal();
+    this.modalService.destroyComponent();
   }
 
   public ngOnInit(): void {
