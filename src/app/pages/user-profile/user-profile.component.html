@@ -1,0 +1,62 @@
+<div class="user-profile">
+  <header-navigation/>
+  <div class="user-profile__container">
+    <span class="user-profile__title">{{title}}</span>
+    <form [formGroup]="userInfoForm" (ngSubmit)="onSubmitUserInfo()" class="user-profile__form-info-container">
+      <div class="user-profile__left-container">
+          <div class="user-profile__input-container">
+            <label class="user-profile__label">Username:</label>
+            <input type="text"
+                   class="user-profile__input-text"
+                   [attr.disabled]="!isEditMode"
+                   formControlName="userName"/>
+          </div>
+          <div class="user-profile__input-container">
+            <label class="user-profile__label">Email:</label>
+            <input type="email"
+                   class="user-profile__input-text"
+                   [attr.disabled]="!isEditMode"
+                   formControlName="email"/>
+          </div>
+        <div class="user-profile__buttons-container">
+          <button class="user-profile__button-change" (click)="toggleEditMode()">Change</button>
+          <button class="user-profile__button-save" type="submit" (click)="onSubmitUserInfo()">Save</button>
+        </div>
+      </div>
+      <div class="user-profile__input-container__file">
+        <label class="user-profile__label">
+          Avatar: <button class="user-profile__input-file-btn" (click)="fileInput.click()" [attr.disabled]="!isEditMode">Upload file</button>
+        </label>
+        <input type="file" #fileInput
+               class="user-profile__input-file"
+               [attr.disabled]="!isEditMode"
+               formControlName="img"/>
+        <img src="{{userImg}}" alt="user-avatar" class="user-profile__avatar-img" />
+      </div>
+    </form>
+    <form [formGroup]="passwordChangeForm" class="user-profile__form-pass-container">
+      <div class="user-profile__form-pass__title">
+        Change Password
+      </div>
+      <div class="user-profile__input-container">
+        <label class="user-profile__label">Your Password:</label>
+        <input type="password"
+               class="user-profile__input-text"
+               formControlName="oldPassword"/>
+      </div>
+      <div class="user-profile__input-container">
+        <label class="user-profile__label">New Password:</label>
+        <input type="password"
+               class="user-profile__input-text"
+               formControlName="newPassword"/>
+      </div>
+      <div class="user-profile__input-container">
+        <label class="user-profile__label">Repeat new Password:</label>
+        <input type="password"
+               class="user-profile__input-text"
+               formControlName="repeatNewPassword"/>
+      </div>
+      <button class="user-profile__change-pass-btn" (click)="changePassword()">Change</button>
+    </form>
+  </div>
+</div>

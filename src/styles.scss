@@ -20,6 +20,12 @@ button {
   user-select: none;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
 @font-face {
   font-family: 'AnekLatin';
   src: url("/assets/fonts/AnekLatin-Bold.ttf") format('truetype');

@@ -1,18 +1,19 @@
-import {Component, Input} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 export interface HeaderNavigationList {
   icon: string,
   alt: string,
-  text: string
+  text: string,
+  path: string
 }
 
 @Component({
   selector: 'header-navigation',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, RouterLink],
   templateUrl: './header-navigation.component.html',
   styleUrl: './styles/header-navigation.master.scss',
   animations: [
@@ -25,18 +26,17 @@ export interface HeaderNavigationList {
   ]
 })
 export class HeaderNavigationComponent{
-  logoIcon : string = "/assets/images/logo.svg";
+  public logoIcon : string = "/assets/images/logo.svg";
 
-  navigationItems: HeaderNavigationList[] = [
-    { icon: "/assets/images/profile.svg", alt: 'profileIcon', text: 'Profile' },
-    { icon: "/assets/images/calendar.svg", alt: 'calendarIcon', text: 'Calendar' },
-    { icon: "/assets/images/graph.svg", alt: 'graphIcon', text: 'Graphs' },
-    { icon: "/assets/images/pie-chart.svg", alt: 'todoIcon', text: 'Pie Chart' }
+  public navigationItems: HeaderNavigationList[] = [
+    { icon: "/assets/images/profile.svg", alt: 'profileIcon', text: 'Profile', path: 'user-profile' },
+    { icon: "/assets/images/calendar.svg", alt: 'calendarIcon', text: 'Calendar', path: '' },
+    { icon: "/assets/images/graph.svg", alt: 'graphIcon', text: 'DashBoard', path: '' }
   ];
 
-  accountInteraction: HeaderNavigationList[] = [
-    { icon: "/assets/images/logOut.svg", alt: 'logOut', text: 'Log Out'},
-    { icon: "/assets/images/deleteAcc.svg", alt: 'deleteAcc', text:'Delete Account'}
+  public accountInteraction: HeaderNavigationList[] = [
+    { icon: "/assets/images/logOut.svg", alt: 'logOut', text: 'Log Out', path: ''},
+    { icon: "/assets/images/deleteAcc.svg", alt: 'deleteAcc', text:'Delete Account', path: ''}
   ];
 
   public isChanged: boolean = window.innerWidth <= 450;
@@ -52,9 +52,6 @@ export class HeaderNavigationComponent{
       this.isChanged = false;
     }
   }
-
-  @Input() isAuthorized!: boolean;
-  public isDisabled:boolean = false;
 
   public isDisabledAnimation: boolean = window.innerWidth <= 900;
   protected readonly window = window;

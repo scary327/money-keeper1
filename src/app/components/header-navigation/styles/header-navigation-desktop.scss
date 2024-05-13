@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  position: absolute;
+  position: fixed;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.10);
 
   &__burger-menu {
@@ -30,29 +30,15 @@
     font-family: "DM Sans", sans-serif;
     font-size: 24px;
     padding: 10px;
+    cursor: pointer;
 
-    &-undisabled {
-      color: #000000;
-      cursor: pointer;
-    }
-
-    &-undisabled:hover {
+    &:hover {
       outline: 2px solid #000;
       border-radius: 20px;
     }
 
-    &-undisabled:active {
+    &:active {
       background-color: #e0e0e0;
-    }
-
-    &-disabled {
-      color: #8c8c8c;
-      cursor: not-allowed;
-
-      &:hover {
-        border-radius: 20px;
-        outline: 2px dashed #8c8c8c;
-      }
     }
   }
 
